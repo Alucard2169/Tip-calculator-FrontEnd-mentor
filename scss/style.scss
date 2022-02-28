@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+
+$hover : hsl(172, 67%, 45%);
+$main : hsl(183, 100%, 15%);
+$neutral : hsl(186, 14%, 43%);
+$main-body: hsl(185, 41%, 84%);
+
+@mixin flex {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+
+}
+
+input[type=number] {
+    appearance: textfield;
+}
+
+body {
+    @include flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    background: $main-body;
+
+
+    .logo {
+        width: 80px;
+        margin: 2rem 0;
+    }
+}
+
+
+.container {
+    text-align: left;
+    padding: 2rem;
+    border-radius: 20px 20px 0 0;
+    background-color: white;
+
+    label {
+        color: $neutral;
+        font-weight: 700;
+        font-size: .9rem;
+    }
+
+    input {
+        border: none;
+        background: hsl(189, 41%, 97%);
+        padding: .5rem;
+        font-size: 24px;
+        border-radius: 5px;
+        text-align: right;
+        color: $main;
+        font-weight: 700;
+        height: 3.2rem;
+
+        &::placeholder {
+            text-align: left;
+            color: rgb(144, 144, 144);
+        }
+
+        &:focus {
+            outline: none !important;
+            border: 2px #57A99D solid;
+        }
+    }
+
+    button {
+        border: none;
+        background-color: $main;
+        border-radius: 10px;
+        color: white;
+        font-weight: 700;
+        font-size: 1.3rem;
+    }
+
+    .interact-part {
+
+        .bill {
+            @include flex;
+            gap: .5rem;
+            flex-direction: column;
+
+            input {
+                background: url('/images/icon-dollar.svg') no-repeat left;
+            }
+        }
+
+        .buttons {
+            margin-top: 1rem;
+
+            .tip {
+                font-size: .8rem;
+                color: $neutral;
+            }
+
+            .buttons-container {
+                margin-top: .7rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 1rem;
+
+                .tip-btn:hover {
+                    background-color: $hover;
+                    color: $main;
+                }
+
+                #custom {
+                    width: 100%;
+
+                    &::placeholder {
+                        text-align: center;
+                        color: $main;
+                        ;
+                    }
+
+                    &:focus {
+                        background: lightcyan;
+                    }
+                }
+
+            }
+        }
+
+        .head-count {
+            margin-top: 1.5rem;
+
+            #people {
+                margin-top: .5rem;
+                position: relative;
+                background: url("/images/icon-person.svg") no-repeat left;
+            }
+
+
+        }
+    }
+
+    .display {
+        margin-top: 2rem;
+        background: $main;
+        border-radius: 12px;
+        padding: 2rem 1rem;
+
+        .info {
+            color: white;
+        }
+
+        .person {
+            color: $neutral;
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
+        .amo {
+            color: $hover;
+            font-size: 1.5rem;
+        }
+
+        .tip-amount {
+            display: flex;
+            justify-content: space-between;
+
+            .tip-heading {
+                font-size: 1.1rem;
+            }
+        }
+
+        .total-amount {
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+
+            .total-heading {
+                font-size: 1.1rem;
+            }
+        }
+
+        .reset {
+            background-color: $hover;
+            color: $main;
+            width: 100%;
+            border-radius: 5px;
+            padding: .5rem 0;
+            font-size: 1rem;
+
+            &:hover {
+                background: #9FE8DF;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .container {
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        border-radius: 20px;
+
+
+
+        .interact-part {
+            width: 50%;
+
+            .buttons {
+                .buttons-container {
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                }
+            }
+
+            .head-count {
+                input {
+                    width: 100%;
+                }
+            }
+        }
+
+        .display {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" defer></script>
+    <link href="scss/style.css" rel="stylesheet">
+    <title>Tip-calculator-FrontEnd-Mentor</title>
+</head>
+<body>
+    <img src="images/logo.svg" alt="site-logo" class="logo">
+    <div class="container">
+        <div class="interact-part">
+            <div class="bill">
+                <label for="amount">Bill</label>
+                <input type="number" id="amount" min="1">
+            </div>
+            <section class="buttons">
+                <h2 class="tip">
+                    Select Tip %
+                </h2>
+                <div class="buttons-container cust">
+                    <button class="tip-btn">5%</button>
+                    <button class="tip-btn">10%</button>
+                    <button class="tip-btn">15%</button>
+                    <button class="tip-btn">25%</button>
+                    <button class="tip-btn">50%</button>
+                    <input id="custom" type="number" placeholder="Custom" min='1'>
+                </div>
+            </section>
+            <div class="head-count">
+                <label for="people">Number of People</label>
+                <input id="people" type="number" min="1">
+            </div>
+        </div>
+        <div class="display">
+            <div class="dis">
+            <div class="tip-amount">
+                <div class="info">
+                    <h3 class="tip-heading">Tip Amount</h3>
+                    <span class="person">/ person</span>
+                </div>
+                <div class="amount">
+                    <h2 class="amo" id="tip-total">$0</h2>
+                </div>
+            </div>
+
+            <div class="total-amount">
+                <div class="info">
+                    <h3 class="total-heading">Amount</h3>
+                    <span class="person">/ person</span>
+                </div>
+                <div class="amount">
+                    <h2 class="amo" id="total">$0</h2>
+                </div>
+            </div>
+            </div>
+
+            <button class="reset">RESET</button>
+        </div>
+    </div>
+    
+</body>
+</html>

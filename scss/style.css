@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #c5e4e7;
+}
+
+body .logo {
+  width: 80px;
+  margin: 2rem 0;
+}
+
+.container {
+  text-align: left;
+  padding: 2rem;
+  border-radius: 20px 20px 0 0;
+  background-color: white;
+}
+
+.container label {
+  color: #5e7a7d;
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.container input {
+  border: none;
+  background: #f4fafa;
+  padding: .5rem;
+  font-size: 24px;
+  border-radius: 5px;
+  text-align: right;
+  color: #00494d;
+  font-weight: 700;
+  height: 3.2rem;
+}
+
+.container input::-webkit-input-placeholder {
+  text-align: left;
+  color: #909090;
+}
+
+.container input:-ms-input-placeholder {
+  text-align: left;
+  color: #909090;
+}
+
+.container input::-ms-input-placeholder {
+  text-align: left;
+  color: #909090;
+}
+
+.container input::placeholder {
+  text-align: left;
+  color: #909090;
+}
+
+.container input:focus {
+  outline: none !important;
+  border: 2px #57A99D solid;
+}
+
+.container button {
+  border: none;
+  background-color: #00494d;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.container .interact-part .bill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .5rem;
+  flex-direction: column;
+}
+
+.container .interact-part .bill input {
+  background: url("/images/icon-dollar.svg") no-repeat left;
+}
+
+.container .interact-part .buttons {
+  margin-top: 1rem;
+}
+
+.container .interact-part .buttons .tip {
+  font-size: .8rem;
+  color: #5e7a7d;
+}
+
+.container .interact-part .buttons .buttons-container {
+  margin-top: .7rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.container .interact-part .buttons .buttons-container .tip-btn:hover {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+
+.container .interact-part .buttons .buttons-container #custom {
+  width: 100%;
+}
+
+.container .interact-part .buttons .buttons-container #custom::-webkit-input-placeholder {
+  text-align: center;
+  color: #00494d;
+}
+
+.container .interact-part .buttons .buttons-container #custom:-ms-input-placeholder {
+  text-align: center;
+  color: #00494d;
+}
+
+.container .interact-part .buttons .buttons-container #custom::-ms-input-placeholder {
+  text-align: center;
+  color: #00494d;
+}
+
+.container .interact-part .buttons .buttons-container #custom::placeholder {
+  text-align: center;
+  color: #00494d;
+}
+
+.container .interact-part .buttons .buttons-container #custom:focus {
+  background: lightcyan;
+}
+
+.container .interact-part .head-count {
+  margin-top: 1.5rem;
+}
+
+.container .interact-part .head-count #people {
+  margin-top: .5rem;
+  position: relative;
+  background: url("/images/icon-person.svg") no-repeat left;
+}
+
+.container .display {
+  margin-top: 2rem;
+  background: #00494d;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+}
+
+.container .display .info {
+  color: white;
+}
+
+.container .display .person {
+  color: #5e7a7d;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.container .display .amo {
+  color: #26c0ab;
+  font-size: 1.5rem;
+}
+
+.container .display .tip-amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .display .tip-amount .tip-heading {
+  font-size: 1.1rem;
+}
+
+.container .display .total-amount {
+  margin: 1.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .display .total-amount .total-heading {
+  font-size: 1.1rem;
+}
+
+.container .display .reset {
+  background-color: #26c0ab;
+  color: #00494d;
+  width: 100%;
+  border-radius: 5px;
+  padding: .5rem 0;
+  font-size: 1rem;
+}
+
+.container .display .reset:hover {
+  background: #9FE8DF;
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 2rem;
+    border-radius: 20px;
+  }
+  .container .interact-part {
+    width: 50%;
+  }
+  .container .interact-part .buttons .buttons-container {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+  }
+  .container .interact-part .head-count input {
+    width: 100%;
+  }
+  .container .display {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+/*# sourceMappingURL=style.css.map */
