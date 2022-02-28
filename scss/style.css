@@ -62,22 +62,22 @@ body .logo {
 }
 
 .container input::-webkit-input-placeholder {
-  text-align: left;
+  text-align: right;
   color: #909090;
 }
 
 .container input:-ms-input-placeholder {
-  text-align: left;
+  text-align: right;
   color: #909090;
 }
 
 .container input::-ms-input-placeholder {
-  text-align: left;
+  text-align: right;
   color: #909090;
 }
 
 .container input::placeholder {
-  text-align: left;
+  text-align: right;
   color: #909090;
 }
 
@@ -96,6 +96,7 @@ body .logo {
 }
 
 .container .interact-part .bill {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,6 +169,16 @@ body .logo {
   margin-top: 1.5rem;
 }
 
+.container .interact-part .head-count .disable {
+  color: transparent;
+}
+
+.container .interact-part .head-count .enable {
+  text-align: right;
+  font-size: .8rem;
+  color: red;
+}
+
 .container .interact-part .head-count #people {
   margin-top: .5rem;
   position: relative;
@@ -237,7 +248,21 @@ body .logo {
 }
 
 @media only screen and (min-width: 700px) {
+  * {
+    font-size: 1.1rem;
+  }
+  body {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100vh;
+  }
+  body .logo {
+    width: 100px;
+  }
   .container {
+    padding: 1rem;
+    margin: 0;
     width: 70%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -246,6 +271,9 @@ body .logo {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 2rem;
     border-radius: 20px;
   }
@@ -262,6 +290,8 @@ body .logo {
     width: 100%;
   }
   .container .display {
+    margin-top: 0;
+    height: 100%;
     width: 50%;
     display: -webkit-box;
     display: -ms-flexbox;

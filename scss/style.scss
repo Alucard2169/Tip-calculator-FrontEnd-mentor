@@ -62,7 +62,7 @@ body {
         height: 3.2rem;
 
         &::placeholder {
-            text-align: left;
+            text-align: right;
             color: rgb(144, 144, 144);
         }
 
@@ -84,12 +84,14 @@ body {
     .interact-part {
 
         .bill {
+            position: relative;
             @include flex;
             gap: .5rem;
             flex-direction: column;
 
             input {
                 background: url('/images/icon-dollar.svg') no-repeat left;
+
             }
         }
 
@@ -132,6 +134,16 @@ body {
 
         .head-count {
             margin-top: 1.5rem;
+
+            .disable {
+                color: transparent;
+            }
+
+            .enable {
+                text-align: right;
+                font-size: .8rem;
+                color: red;
+            }
 
             #people {
                 margin-top: .5rem;
@@ -199,10 +211,29 @@ body {
 }
 
 @media only screen and (min-width: 700px) {
+
+    * {
+        font-size: 1.1rem;
+    }
+
+    body {
+        justify-content: center;
+        height: 100vh;
+
+        .logo {
+            width: 100px;
+        }
+    }
+
+
+
     .container {
+        padding: 1rem;
+        margin: 0;
         width: 70%;
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 2rem;
         border-radius: 20px;
 
@@ -226,6 +257,8 @@ body {
         }
 
         .display {
+            margin-top: 0;
+            height: 100%;
             width: 50%;
             display: flex;
             flex-direction: column;

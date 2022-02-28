@@ -13,24 +13,25 @@
         <div class="interact-part">
             <div class="bill">
                 <label for="amount">Bill</label>
-                <input type="number" id="amount" min="1">
+                <input type="number" id="amount" min="1" placeholder="0">
             </div>
             <section class="buttons">
                 <h2 class="tip">
                     Select Tip %
                 </h2>
                 <div class="buttons-container cust">
-                    <button class="tip-btn">5%</button>
-                    <button class="tip-btn">10%</button>
-                    <button class="tip-btn">15%</button>
-                    <button class="tip-btn">25%</button>
-                    <button class="tip-btn">50%</button>
+                    <button class="tip-btn" value=".05">5%</button>
+                    <button class="tip-btn" value=".1">10%</button>
+                    <button class="tip-btn" value=".15">15%</button>
+                    <button class="tip-btn" value=".25">25%</button>
+                    <button class="tip-btn" value=".5">50%</button>
                     <input id="custom" type="number" placeholder="Custom" min='1'>
                 </div>
             </section>
             <div class="head-count">
                 <label for="people">Number of People</label>
-                <input id="people" type="number" min="1">
+                <p id="error" class="disable"></p>
+                <input id="people" type="number" min="1" placeholder="0">
             </div>
         </div>
         <div class="display">
@@ -44,7 +45,7 @@
                     <h2 class="amo" id="tip-total">$0</h2>
                 </div>
             </div>
-
+            
             <div class="total-amount">
                 <div class="info">
                     <h3 class="total-heading">Amount</h3>
