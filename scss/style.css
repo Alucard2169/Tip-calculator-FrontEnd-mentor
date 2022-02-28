@@ -108,7 +108,7 @@ body .logo {
 }
 
 .container .interact-part .bill input {
-  background: url("/images/icon-dollar.svg") no-repeat left;
+  background: url("images/icon-dollar.svg") no-repeat left;
 }
 
 .container .interact-part .buttons {
@@ -171,7 +171,7 @@ body .logo {
 .container .interact-part .head-count #people {
   margin-top: .5rem;
   position: relative;
-  background: url("/images/icon-person.svg") no-repeat left;
+  background: url("images/icon-person.svg") no-repeat left;
 }
 
 .container .display {
