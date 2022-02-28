@@ -45,7 +45,7 @@ function calculator(tipInput) {
 
 
     let tipAmount = ((bill / 100) * tipInput) / people;
-    let total = bill / people + tipInput;
+    let total = (bill * tipInput) / people;
     
 
     tipAmountDisplay.innerText = `$ ${tipAmount.toFixed(2)}`;
