@@ -77,20 +77,18 @@ billValue.addEventListener('input', () => {
 })
 
 headCount.addEventListener('input', () => {
-    if (headCount.value > 100 || headCount.value < 1) {
+    if (+headCount.value%1 != 0) {
         valid = false;
-        headError.innerText = 'Seriously!? no more than 100';
-        headCount.setAttribute('aria-invalid', 'true');
-        headError.classList.add('enable');
-        headCount.setAttribute('disabled')
-    }
-    if (headCount.value % 1 != 0) {
-        valid = false;
-        headCount.setAttribute("aria-invalid", "true")
         headError.innerText = "Zombies are not allowed";
         headError.classList.add('enable');
     }
-    if (headCount.value < 100) {
+    else if(headCount.value > 100 || headCount.value < 1) {
+        valid = false;
+        headError.innerText = 'Seriously!? no more than 100';
+        headError.classList.add('enable');
+    }
+    
+    else{
         headError.classList.remove('enable')
     }
 })
