@@ -1,86 +1,111 @@
-// ***variable declaration***
-const billInput = document.querySelector('#amount');
-const peopleInput = document.querySelector("#people");
-const tipInputButton = document.querySelectorAll('.tip-btn');
+const resetButton = document.querySelector('.reset');
+const billValue = document.querySelector('#amount');
+const headCount = document.querySelector('#people');
+const tipButtons = document.querySelectorAll('.tip-btn');
 const customTip = document.querySelector('#custom');
-const resetBtn = document.querySelector('.reset');
+const errorMsg = document.querySelector("#error");
+const headError = document.querySelector('#error-count')
 const tipAmountDisplay = document.querySelector('#tip-total');
 const totalAmountDisplay = document.querySelector('#total');
-const error = document.querySelector('#error')
+
 
 reset();
+let valid = true;
 
-
-function calculator(tipInput) {
-
-    // if everything is right
-
-    let bill = +billInput.value;
-    let people = +peopleInput.value;
-
-    if (billInput.value == '' || peopleInput.value == '') {
-        alert('write people please');
-    }
-
-     // if it goes wrong
-    if (peopleInput.value > 100) {
-        error.innerText = "that's some family you got there"
-        error.classList.remove('disable');
-        error.classList.add('enable');
-        return;
-    }
-    if (peopleInput.value % 1 !== 0) {
-        error.innerText = "zombie's not allowed";
-        error.classList.remove('disable');
-        error.classList.add('enable');
-        return;
-    }
-    if (billInput.value == null || billInput.value == '',
-        peopleInput.value == null || peopleInput.value == '',
-        tipInput == null || tipInput ==  ''){
-        return;
-    }
-
-
-
-
-    let tipAmount = ((bill / 100) * tipInput) / people;
-    let total = (bill * tipInput) / people;
+function calculator(tipAmount) {
+    const bill = +billValue.value;
+    const people = +headCount.value;
+    
+    //looking for error
+    error();
     
 
-    tipAmountDisplay.innerText = `$ ${tipAmount.toFixed(2)}`;
+    //if no error
+    let tipTotal = ((bill / 100) * tipAmount) / people;
+    let total = bill / people + tipTotal;
+    
+
+    tipAmountDisplay.innerText = `$ ${tipTotal.toFixed(2)}`
     totalAmountDisplay.innerText = `$ ${total.toFixed(2)}`
 
 }
 
 
 
-// run the calculator for buttons
 
-tipInputButton.forEach((button) => {
+tipButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        calculator(+button.value);
+        calculator((+button.value))
     })
 })
 
-// run the calculator for custom
 customTip.addEventListener('input', () => {
-    calculator(+customTip.value)
+    calculator((+customTip.value))
 })
 
 
-// reset
-resetBtn.addEventListener('click', () => {
-    reset();
+
+resetButton.addEventListener('click', () => {
+    reset()
 })
-//reset function
-function reset() {
-    billInput.value = null;
-    peopleInput.value = null;
-    tipInputButton.value = null;
-    customTip.value = null;
-    tipAmountDisplay.innerText = '$0.00'
-    totalAmountDisplay.innerText = '$0.00'
-    error.classList.remove('enable');
-    error.classList.add('disable')
+
+
+
+
+
+
+
+
+function error() {
+    
 }
+
+billValue.addEventListener('input', () => {
+    let value = billValue.value;
+    totalAmountDisplay.innerText = `$ ${(+value).toFixed(2)}`
+    if (billValue.value == '') {
+        valid = false;
+        billValue.value = null;
+        errorMsg.innerText = 'Numerical digits only!!!'
+        errorMsg.classList.add('enable');
+    }
+    if (billValue.value != '') {
+        errorMsg.classList.remove('enable')
+    }
+
+    
+})
+
+headCount.addEventListener('input', () => {
+    if (headCount.value > 100 || headCount.value < 1) {
+        headError.innerText = 'Seriously!?';
+        headError.setAttribute('aria-invalid', 'true');
+        headError.classList.add('enable');
+    }
+    if (headCount.value % 1 != 0) {
+        headError.setAttribute("aria-invalid", "true")
+        headError.innerText = "Zombies are not allowed";
+        headError.classList.add('enable');
+    }
+    if (headCount.value < 100) {
+        headError.classList.remove('enable')
+    }
+})
+
+function reset() {
+    billValue.value = null;
+    headCount.value = null;
+    tipButtons.value = null;
+    customTip.value = null;
+    errorMsg.classList.remove('enable');
+    headError.classList.remove('enable')
+    tipAmountDisplay.innerText = '$0.00';
+    totalAmountDisplay.innerText = '$0.00';
+    headError.setAttribute('aria-invalid',false)
+}
+
+
+
+
+
+
