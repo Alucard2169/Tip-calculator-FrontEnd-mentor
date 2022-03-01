@@ -56,9 +56,12 @@ billValue.addEventListener('input', () => {
         errorMsg.innerText = 'Numerical digits only!!!'
         errorMsg.classList.add('enable');
     }
-    if (billValue.value != '') {
+    else if (billValue.value != '') {
         valid = false
         errorMsg.classList.remove('enable')
+    }
+    else {
+        valid = true;
     }
 
     
@@ -78,6 +81,7 @@ headCount.addEventListener('input', () => {
     }
     
     else{
+        valid = true;
         headError.classList.remove('enable')
     }
 })
