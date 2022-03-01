@@ -119,7 +119,7 @@ body .logo {
 }
 
 .container .interact-part .bill input {
-  background: url("https://github.com/Alucard2169/Tip-calculator-FrontEnd-mentor/blob/main/images/icon-dollar.svg") no-repeat left;
+  background: url("images/icon-dollar.svg") no-repeat left;
 }
 
 .container .interact-part .buttons {
@@ -182,7 +182,7 @@ body .logo {
 .container .interact-part .head-count #people {
   margin-top: .5rem;
   position: relative;
-  background: url("https://github.com/Alucard2169/Tip-calculator-FrontEnd-mentor/blob/main/images/icon-person.svg") no-repeat left;
+  background: url("images/icon-person.svg") no-repeat left;
 }
 
 .container .display {
