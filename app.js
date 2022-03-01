@@ -37,18 +37,6 @@ function calculator(tipAmount) {
 
 
 
-// tip input through button
-tipButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        calculator((+button.value))
-    })
-})
-
-
-// tip input through custom
-customTip.addEventListener('input', () => {
-    calculator((+customTip.value))
-})
 
 
 resetButton.addEventListener('click', () => {
@@ -68,9 +56,12 @@ billValue.addEventListener('input', () => {
         errorMsg.innerText = 'Numerical digits only!!!'
         errorMsg.classList.add('enable');
     }
-    if (billValue.value != '') {
+    else if (billValue.value != '') {
         valid = false
         errorMsg.classList.remove('enable')
+    }
+    else {
+        valid = true;
     }
 
     
@@ -81,6 +72,7 @@ headCount.addEventListener('input', () => {
         valid = false;
         headError.innerText = "Zombies are not allowed";
         headError.classList.add('enable');
+
     }
     else if(headCount.value > 100 || headCount.value < 1) {
         valid = false;
@@ -89,8 +81,25 @@ headCount.addEventListener('input', () => {
     }
     
     else{
+        valid = true;
         headError.classList.remove('enable')
     }
+})
+
+
+// tip input through button
+tipButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (valid == false) return;
+        calculator((+button.value))
+    })
+})
+
+
+// tip input through custom
+customTip.addEventListener('input', () => {
+    if (valid == false) return;
+    calculator((+customTip.value))
 })
 
 

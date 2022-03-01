@@ -25,9 +25,11 @@ input[type=number] {
 
 .disable {
     color: transparent;
+    visibility: hidden;
 }
 
 .enable {
+    visibility: visible;
     text-align: right;
     font-size: .8rem;
     color: red;
@@ -100,7 +102,7 @@ body {
             flex-direction: column;
 
             input {
-                background: url('/images/icon-dollar.svg') no-repeat left;
+                background: url('https://raw.githubusercontent.com/Alucard2169/Tip-calculator-FrontEnd-mentor/b8ea8787574d536d7a959a07027eee7812fb6d90/images/icon-dollar.svg') no-repeat left;
 
             }
         }
@@ -150,7 +152,7 @@ body {
             #people {
                 margin-top: .5rem;
                 position: relative;
-                background: url("/images/icon-person.svg") no-repeat left;
+                background: url("https://raw.githubusercontent.com/Alucard2169/Tip-calculator-FrontEnd-mentor/b8ea8787574d536d7a959a07027eee7812fb6d90/images/icon-person.svg") no-repeat left;
             }
 
 
