@@ -1,3 +1,5 @@
+// defining main variables
+
 const resetButton = document.querySelector('.reset');
 const billValue = document.querySelector('#amount');
 const headCount = document.querySelector('#people');
@@ -8,22 +10,25 @@ const headError = document.querySelector('#error-count')
 const tipAmountDisplay = document.querySelector('#tip-total');
 const totalAmountDisplay = document.querySelector('#total');
 
-
+// reset by default
 reset();
+
+//valid flag
 let valid = true;
 
+// main calculator function
 function calculator(tipAmount) {
     const bill = +billValue.value;
     const people = +headCount.value;
     
-    //looking for error
-    error();
-    
+    if (valid == false) {
+        tipAmountDisplay.innerText = '$0.00';
+        totalAmountDisplay.innerText = '$0.00';
+    }
 
-    //if no error
     let tipTotal = ((bill / 100) * tipAmount) / people;
     let total = bill / people + tipTotal;
-    
+
 
     tipAmountDisplay.innerText = `$ ${tipTotal.toFixed(2)}`
     totalAmountDisplay.innerText = `$ ${total.toFixed(2)}`
@@ -32,17 +37,18 @@ function calculator(tipAmount) {
 
 
 
-
+// tip input through button
 tipButtons.forEach((button) => {
     button.addEventListener('click', () => {
         calculator((+button.value))
     })
 })
 
+
+// tip input through custom
 customTip.addEventListener('input', () => {
     calculator((+customTip.value))
 })
-
 
 
 resetButton.addEventListener('click', () => {
@@ -52,14 +58,7 @@ resetButton.addEventListener('click', () => {
 
 
 
-
-
-
-
-function error() {
-    
-}
-
+// button input to catch error
 billValue.addEventListener('input', () => {
     let value = billValue.value;
     totalAmountDisplay.innerText = `$ ${(+value).toFixed(2)}`
@@ -70,6 +69,7 @@ billValue.addEventListener('input', () => {
         errorMsg.classList.add('enable');
     }
     if (billValue.value != '') {
+        valid = false
         errorMsg.classList.remove('enable')
     }
 
@@ -77,21 +77,24 @@ billValue.addEventListener('input', () => {
 })
 
 headCount.addEventListener('input', () => {
-    if (headCount.value > 100 || headCount.value < 1) {
-        headError.innerText = 'Seriously!?';
-        headError.setAttribute('aria-invalid', 'true');
-        headError.classList.add('enable');
-    }
-    if (headCount.value % 1 != 0) {
-        headError.setAttribute("aria-invalid", "true")
+    if (+headCount.value%1 != 0) {
+        valid = false;
         headError.innerText = "Zombies are not allowed";
         headError.classList.add('enable');
     }
-    if (headCount.value < 100) {
+    else if(headCount.value > 100 || headCount.value < 1) {
+        valid = false;
+        headError.innerText = 'Seriously!? no more than 100';
+        headError.classList.add('enable');
+    }
+    
+    else{
         headError.classList.remove('enable')
     }
 })
 
+
+//reset function
 function reset() {
     billValue.value = null;
     headCount.value = null;
