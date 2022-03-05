@@ -81,7 +81,6 @@ function calculator(people) {
 
 
 function reset() {
-    tipButtons.forEach((button) => { button.classList.remove('clicked') });
     billValue.value = null;
     tipValue = 0;
     customTip.value = null;
